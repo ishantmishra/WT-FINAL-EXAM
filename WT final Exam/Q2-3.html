@@ -1,0 +1,39 @@
+<html>
+<body>
+<h1 style="color:darkturquoise;">
+Q2-3
+</h1>
+
+<script>
+
+let today = new Date();
+
+let christmasYear = today.getFullYear();
+
+
+if (today.getMonth() == 11 &&
+today.getDate() > 25) {
+
+
+christmasYear = christmasYear + 1;
+}
+
+
+let christmasDate =
+new Date(christmasYear, 11, 25);
+
+
+let daysMilliseconds =
+1000 * 60 * 60 * 24;
+
+
+let daysRemaining = Math.ceil(
+(christmasDate.getTime() - today.getTime()) /
+(daysMilliseconds)
+);
+
+document.write(" " + daysRemaining +
+" Days remaining until Christmas.");
+</script>
+</body>
+</html>

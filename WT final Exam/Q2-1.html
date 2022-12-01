@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Reg Form</title>
+<style>
+body {
+font-family: Calibri;
+}
+
+input[type="text"] {
+width: 250px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+width: 77px;
+height: 27px;
+position: relative;
+left: 180px;
+}
+
+form {
+text-align: center;
+font-family: Calibri;
+font-size: 20px;
+border: 3px solid black;
+width: 600px;
+margin: 20px auto;
+}
+
+td {
+padding: 10px;
+}
+
+td:first-child {
+text-align: right;
+font-weight: bold;
+}
+
+td:last-child {
+text-align: left;
+}
+</style>
+</head>
+
+<body>
+<center>
+<h1>Form Validation using HTML,CSS,JavaScript</h1>
+</center>
+<hr>
+<form method="" action="" name="reg_form" onsubmit="return validate()">
+<h2>Registration Form</h2>
+<table>
+<tr>
+<td><label>First Name: </label></td>
+<td>
+<input type="text" name="fname" placeholder="First Name">
+</td>
+</tr>
+<tr>
+<td><label>Last Name: </label></td>
+<td>
+<input type="text" name="lname" placeholder="Last Name">
+</td>
+</tr>
+<tr>
+<td><label>Address: </label></td>
+<td>
+<input type="textarea" size="50" name="address" placeholder="Address">
+</td>
+</tr>
+<tr>
+<td><label>Password: </label>
+<td>
+<input type="text" name="password"  placeholder="Password">
+</td>
+</tr>
+<tr>
+<td><label>Email Id: </label></td>
+<td>
+<input type="text" name="email" placeholder="example@gmail.com">
+</td>
+</tr>
+<tr>
+<td><label>Mobile: </label></td>
+<td>
+<input type="text" name="mobile" pattern="[1-9]{1}[0-9]{9}">
+</td>
+</tr>
+<tr>
+<td>
+<input type="submit" name="submit" value="Submit">
+<input type="reset" name="reset" value="Reset">
+</td>
+</tr>
+</table>
+</form>
+<script>
+function validate()
+{
+var fname = document.reg_form.fname;
+var lname = document.reg_form.lname;
+var address = document.reg_form.address;
+var password = document.reg_form.password
+var email = document.reg_form.email;
+var mobile = document.reg_form.mobile;
+
+if (fname.value.length <= 6)
+{
+alert("Name should not be less than 6");
+fname.focus();
+return false;
+}
+if (lname.value.length <= 0)
+{
+alert("Last Name is required");
+lname.focus();
+return false;
+}
+if (address.value.length <= 0)
+{
+alert("Address is required");
+lname.focus();
+return false;
+}
+if (password.value.length <= 6)
+{
+alert("Password should not be less than 6");
+address.focus();
+return false;
+}
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if (!email.value.match(mailformat))
+{
+alert("You have entered an invalid email address!");
+email.focus();
+return false;
+}
+if (mobile.value.length <= 0)
+{
+alert("Mobile number is required");
+mobile.focus();
+return false;
+}
+return false;
+} 
+</script>
+</body>
+
+</html>
